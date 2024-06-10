@@ -1,0 +1,33 @@
+{
+  "name": "addpay/assessment",
+  "description": "PHP/Laravel assessment.",
+  "version": "1.0.0",
+  "type": "package",
+  "license": "Proprietary",
+  "autoload": {
+    "psr-4": {
+      "Assessment\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Assessment\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "laravel/framework": "*",
+    "phpdocumentor/phpdocumentor": "^2.8",
+    "monolog/monolog": "^1.6",
+    "symfony/console": "~2.4",
+    "php": "7.4",
+    "nikic/php-parser": "^3.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "*"
+  },
+  "config": {
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
+    }
+  }
+}
