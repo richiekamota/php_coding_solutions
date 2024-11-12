@@ -14,7 +14,7 @@ function two_sum($nums, $target)
 }
 
 $nums = [2, 6, 9, 1, 3];
-$target = 16;
+$target = 15;
 $indices = two_sum($nums, $target);
 
 if ($indices !== null) {

@@ -14,9 +14,9 @@
 
 // Create and store all test vectors in an array.
 $vectors = array(
-    array("10:00AM-12:30PM", "02:00PM-02:45PM", "09:10AM-09:50AM"),
-    array("12:15PM-02:00PM", "09:00AM-10:00AM", "10:30AM-12:00PM"),
-    array("12:15PM-02:00PM", "09:00AM-12:11PM", "02:02PM-04:00PM")
+    array("09:10AM-09:50AM","10:00AM-12:30PM", "02:00PM-02:45PM"),
+    array("09:00AM-10:00AM", "10:30AM-12:00PM","12:15PM-02:00PM"),
+    array( "09:00AM-12:11PM", "12:15PM-02:00PM", "02:02PM-04:00PM")
 );
 
 // Execute the test vectors using the function

@@ -13,11 +13,11 @@ Description: Using the PHP language, have the function LetterCountI(str) take th
 */
 
 function LetterCountI($str) {
-    // Split the string into an array of words
+    // Split the input string into an array of words
     $words = explode(" ", $str);
 
-    // Initialize variables to track the word with the most repeated characters
-    $maxWord = "-1";
+    // Initialize variables to keep track of the word with the most repeated characters
+    $wordWithMaxRepeats = -1;
     $maxRepeatCount = 0;
 
     // Iterate through each word in the array
@@ -25,18 +25,18 @@ function LetterCountI($str) {
         // Count the frequency of each character in the word
         $charCounts = array_count_values(str_split($word));
 
-        // Find the maximum count of repeated characters in the word
-        $maxCount = max($charCounts);
+        // Find the highest frequency of any character in the word
+        $currentMaxRepeat = max($charCounts);
 
-        // Check if the word has more repeated characters than the current maximum
-        if ($maxCount > $maxRepeatCount) {
-            $maxRepeatCount = $maxCount;
-            $maxWord = $word;
+        // Update the word with the most repeated characters if applicable
+        if ($currentMaxRepeat > $maxRepeatCount) {
+            $maxRepeatCount = $currentMaxRepeat;
+            $wordWithMaxRepeats = $word;
         }
     }
 
-    // Return the word with the most repeated characters, or -1 if no word has repeated characters
-    return ($maxWord !== "-1" && $maxRepeatCount > 1) ? $maxWord : -1;
+    // Return the word with the most repeated characters if found, otherwise -1
+    return ($maxRepeatCount > 1) ? $wordWithMaxRepeats : -1;
 }
 
 // Define test vectors

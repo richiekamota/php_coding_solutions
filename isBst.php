@@ -78,9 +78,9 @@ class BinaryTree
 		$tree->root = new TreeNode(15);
 		$tree->root->left = new TreeNode(10);
 		$tree->root->right = new TreeNode(24);
-		// $tree->root->right->right = new TreeNode(30);
-		// $tree->root->right->left = new TreeNode(16);
-		// $tree->root->left->left = new TreeNode(15);
+		$tree->root->right->right = new TreeNode(30);
+		$tree->root->right->left = new TreeNode(16);
+		$tree->root->left->left = new TreeNode(9);
 		// Display Tree elements
 		$tree->inorder($tree->root);
 		if ($tree->isBst($tree->root, NULL, NULL))

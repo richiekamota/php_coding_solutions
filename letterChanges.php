@@ -16,14 +16,16 @@ function LetterChanges($str) {
             // Increment the ASCII value of the character
             $nextChar = chr(ord($char) + 1);
 
-            // Handle wrap-around from 'z' to 'a' or 'Z' to 'A'
-            if ($nextChar > 'z' || $nextChar > 'Z') {
+            // Handle wrap-around from 'z' to 'a' and 'Z' to 'A'
+            if ($char == 'z') {
                 $nextChar = 'a';
+            } elseif ($char == 'Z') {
+                $nextChar = 'A';
             }
 
             // Convert vowels to uppercase if the next character is a vowel
-            if (isset($vowelMap[$nextChar])) {
-                $nextChar = $vowelMap[$nextChar];
+            if (isset($vowelMap[strtolower($nextChar)])) {
+                $nextChar = $vowelMap[strtolower($nextChar)];
             }
 
             // Append the modified character to the result string

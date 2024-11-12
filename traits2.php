@@ -4,6 +4,9 @@ trait IdentityTrait {
     public function generateId() {
         return uniqid();
     }
+
+    // Abstract method declaration for the tax rate
+    abstract public function getTaxRate();
 }
 
 trait PriceUtilities {

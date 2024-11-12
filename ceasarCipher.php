@@ -22,7 +22,9 @@ function CaesarCipher($str, $num) {
     // Apply Caesar Cipher encryption to each character in the array
     for ($i = 0; $i < count($chars); $i++) {
         // Encrypt the current character using the specified shift value
-        $chars[$i] = shiftCharacter($chars[$i], $num);
+        if (ctype_alpha($chars[$i]) && $chars[$i] !== ' ') {
+            $chars[$i] = shiftCharacter($chars[$i], $num);
+        }
     }
 
     // Join the encrypted characters back into a string and return the result
@@ -37,17 +39,11 @@ function CaesarCipher($str, $num) {
  * @return string The shifted character.
  */
 function shiftCharacter($char, $num) {
-    // Determine the range of characters ('A' to 'Z' for uppercase, 'a' to 'z' for lowercase)
+    // Determine the starting ASCII code for the character ('A' for uppercase, 'a' for lowercase)
     $start = ord(ctype_upper($char) ? 'A' : 'a');
-    $end = ord(ctype_upper($char) ? 'Z' : 'z');
-
-    // Calculate the shifted position of the character
-    $shifted = ord($char) + $num;
-
-    // Wrap around the alphabet if necessary
-    if ($shifted > $end) {
-        $shifted = $start + ($shifted - $end - 1) % 26;
-    }
+    
+    // Calculate the shifted position of the character within the alphabet
+    $shifted = $start + (ord($char) - $start + $num) % 26;
 
     // Return the shifted character
     return chr($shifted);
@@ -68,5 +64,4 @@ foreach ($testCases as $vector) {
     echo "Test Vector: '{$inputStr}', Shift: {$shiftNum}" . PHP_EOL;
     echo "Output: " . CaesarCipher($inputStr, $shiftNum) . PHP_EOL;
 }
-
 ?>

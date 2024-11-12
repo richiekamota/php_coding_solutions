@@ -1,29 +1,24 @@
-<?php
+<?php 
 
-function BracketCombinations($num){
- if ($num <= 0){
-    return 0;
- }
-  $result = 0;
-  generateCombinations('',0,0,$num,$result);
-  return $result;
-}
+function twodigitssumoften($str){
+   $str = preg_replace('/[^0-9?]/',"",$str);
 
-function generateCombinations($current,$open,$close,$max,&$result){
-  if(strlen($current) === $max*2){
-    if($open == $close){
-      $result++;
+    for($i=0;$i <= strlen($str)-5; $i++){
+     if(is_numeric($str[$i]) && is_numeric($str[$i + 4])){
+        if((intval($str[$i]) + intval($str[$i + 4])) === 10 && substr_count(substr($str,$i,5),'?') === 3){
+            return true;
+        }
+     }
     }
-  }
-
-  if($open < $max){
-    generateCombinations($current.'(',$open+1,$close,$max,$result);
-  }
-
-  if($close < $open){
-   generateCombinations($current.')',$open,$close+1,$max,$result);
-  }
+   return false;
 }
 
-echo BracketCombinations(3); // Output: 5
+// Example
+$str1 = "2c??baaaj3ac??d?7";
+$str2 = "7de6kkk?i?v?4???????9";
+$result1 = twodigitssumoften($str1);
+$result2 = twodigitssumoften($str2);
+
+echo $result1 ? 'true' : 'false';  // Output: true
+echo $result2 ? 'true' : 'false';  // Output: false
 ?>

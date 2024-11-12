@@ -22,12 +22,16 @@ foreach ($vectors as $vector) {
 }
 
 function FibonacciChecker($num) {
-    // Check if the number is a perfect square when evaluated under the conditions of the Fibonacci sequence
-    if (isPerfectSquare(5 * $num * $num + 4) || isPerfectSquare(5 * $num * $num - 4)) {
-        return "yes";
-    } else {
-        return "no";
+    // A number is a Fibonacci number if and only if one or both of 
+    // (5 * n^2 + 4) or (5 * n^2 - 4) is a perfect square
+    $n1 = 5 * $num * $num + 4;
+    $n2 = 5 * $num * $num - 4;
+
+    if (isPerfectSquare($n1) || isPerfectSquare($n2)) {
+        return 'yes';
     }
+
+    return 'no';
 }
 
 function isPerfectSquare($num) {

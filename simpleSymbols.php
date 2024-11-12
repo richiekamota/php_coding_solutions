@@ -8,8 +8,6 @@ function SimpleSymbols($str) {
     // Initialize a flag variable to false
     $flag = false;
 
-    // Check if the string starts and ends with a letter
-    if (preg_match('/^[a-zA-Z]/', $str) && preg_match('/[a-zA-Z]$/', $str)) {
         // Find all letters in the string
         preg_match_all('/[A-Za-z]/', $str, $letters);
 
@@ -28,14 +26,13 @@ function SimpleSymbols($str) {
                 break;
             }
         }
-    }
 
     // Return the final boolean value as a string
     return $flag ? "true" : "false";
 }
 
 // Define test vectors
-$vectors = ["+d+=3=+s+", "f++d+"];
+$vectors = ["+d+=3=+s+", "f++d+","g+++t=8"];
 
 // Execute the test vectors using the function
 foreach ($vectors as $vector) {

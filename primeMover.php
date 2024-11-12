@@ -1,11 +1,11 @@
 <?php
 /**
  *
-Developer: Mirza S. Baig
+* Developer: Mirza S. Baig
 
-Date: 3-25-2014
+* Date: 3-25-2014
 
-Description:    Using the PHP language, have the function PrimeMover(num) return the
+* Description:  Using the PHP language, have the function PrimeMover(num) return the
  *              numth prime number. The range will be from 1 to 10^4. For example: if
  *              num is 16 the output should be 53 as 53 is the 16th prime number.
  */
